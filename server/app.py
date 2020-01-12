@@ -17,7 +17,7 @@ CORS(app, resources={r'/*': {'origins': '*'}})
 TASKS = [
     {
         'id': uuid.uuid4().hex,
-        'title': 'Criar, visualizar, atualizar e remover algumas tarefas na ferramenta: evttask',
+        'title': 'Criar, consultar, atualizar e remover algumas tarefas na ferramenta: evttask',
         'author': 'Jubileu',
         'done': False
     },
