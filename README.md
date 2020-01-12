@@ -9,3 +9,6 @@
 - npm
 - Vue / Vue CLI
 - Axios
+
+![evttask](client/src/assets/evttask.png)
+
