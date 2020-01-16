@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+from datetime import datetime
 import uuid
 
 
@@ -13,13 +14,15 @@ app.config.from_object(__name__)
 # enable CORS
 CORS(app, resources={r'/*': {'origins': '*'}})
 
+now = datetime.now()
 
 TASKS = [
     {
         'id': uuid.uuid4().hex,
         'title': 'Criar, consultar, atualizar e remover algumas tarefas na ferramenta: evttask',
         'author': 'Jubileu',
-        'done': False
+        'done': False,
+        'date': now
     },
 ]
 
@@ -38,6 +41,7 @@ def hello():
 
 @app.route('/tasks', methods=['GET', 'POST'])
 def all_tasks():
+    now = datetime.now()
     response_object = {'status': 'success'}
     if request.method == 'POST':
         post_data = request.get_json()
@@ -45,7 +49,8 @@ def all_tasks():
             'id': uuid.uuid4().hex,
             'title': post_data.get('title'),
             'author': post_data.get('author'),
-            'done': post_data.get('done')
+            'done': post_data.get('done'),
+            'date': now
         })
         response_object['message'] = 'Task added!'
     else:
@@ -62,7 +67,8 @@ def single_task(task_id):
             'id': uuid.uuid4().hex,
             'title': post_data.get('title'),
             'author': post_data.get('author'),
-            'done': post_data.get('done')
+            'done': post_data.get('done'),
+            'date': now
         })
         response_object['message'] = 'Task updated!'
     if request.method == 'DELETE':

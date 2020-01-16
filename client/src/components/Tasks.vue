@@ -6,7 +6,7 @@
         <hr><br><br>
         <alert :message="message" v-if="showMessage"></alert>
       <button type="button" class="btn btn-success btn-sm" v-b-modal.task-modal>Add Tarefa</button>
-        <br><br>
+        <br><br><!--<timer></timer>-->
         <table class="table table">
           <thead class="thead-dark table-sm">
             <tr>
@@ -128,6 +128,7 @@
 <script>
 import axios from 'axios';
 import Alert from './Alert.vue';
+// import Timer from '@/components/Timer.vue';
 
 export default {
   data() {
@@ -149,6 +150,7 @@ export default {
     };
   },
   components: {
+    // timer: Timer,
     alert: Alert,
   },
   methods: {
