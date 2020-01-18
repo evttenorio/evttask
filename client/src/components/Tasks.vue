@@ -6,13 +6,14 @@
         <hr><br><br>
         <alert :message="message" v-if="showMessage"></alert>
       <button type="button" class="btn btn-success btn-sm" v-b-modal.task-modal>Add Tarefa</button>
-        <br><br><!--<timer></timer>-->
+        <br><br>
         <table class="table table">
           <thead class="thead-dark table-sm">
             <tr>
               <th scope="col">Nome da Tarefa</th>
               <th scope="col">Autor</th>
               <th scope="col">Feita?</th>
+              <th scope="col">Tempo da Tarefa</th>
               <th></th>
             </tr>
           </thead>
@@ -25,6 +26,7 @@
                 <span v-if="task.done">Sim</span>
                 <span v-else>Não</span>
               </td>
+              <timer></timer>
               <td>
                 <div class="btn-group" role="group">
                   <button
@@ -128,7 +130,7 @@
 <script>
 import axios from 'axios';
 import Alert from './Alert.vue';
-// import Timer from '@/components/Timer.vue';
+import Timer from '@/components/Timer.vue';
 
 export default {
   data() {
@@ -150,7 +152,7 @@ export default {
     };
   },
   components: {
-    // timer: Timer,
+    timer: Timer,
     alert: Alert,
   },
   methods: {
