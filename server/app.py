@@ -3,7 +3,6 @@ from flask_cors import CORS
 from datetime import datetime
 import uuid
 
-
 # configuration
 DEBUG = True
 
@@ -11,7 +10,7 @@ DEBUG = True
 app = Flask(__name__)
 app.config.from_object(__name__)
 
-# enable CORS
+# CORS
 CORS(app, resources={r'/*': {'origins': '*'}})
 
 now = datetime.now()
@@ -19,8 +18,8 @@ now = datetime.now()
 TASKS = [
     {
         'id': uuid.uuid4().hex,
-        'title': 'Criar, consultar, atualizar e remover algumas tarefas na ferramenta: evttask',
-        'author': 'Jubileu',
+        'title': 'Criar, consultar, atualizar e remover algumas tarefas na ferramenta',
+        'author': 'evttask',
         'done': False,
         'date': now
     },
@@ -33,7 +32,6 @@ def remove_task(task_id):
             return True
     return False
 
-# sanity check route
 @app.route('/', methods=['GET'])
 def hello():
     response_object = {'Message': 'Hello'}
@@ -77,4 +75,4 @@ def single_task(task_id):
     return jsonify(response_object)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')
