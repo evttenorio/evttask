@@ -1,6 +1,6 @@
 # evttask
 
-**CRUD de um projeto web com Vue Cli no frontend e Flask para backend**
+**CRUD de um projeto para web com Vue Cli no frontend e Flask para backend**
 
 ## Tecnologia utilizadas:
 - Vue / Vue CLI
